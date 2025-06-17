@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miguel-f <miguel-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 12:49:51 by miguel-f          #+#    #+#             */
-/*   Updated: 2025/06/17 12:50:12 by miguel-f         ###   ########.fr       */
+/*   Updated: 2025/06/17 13:04:33 by miguel-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdarg.h>
 
+/**
+ * Imprime una cadena de caracteres en la salida estándar.
+ * Si el puntero es NULL, imprime "(null)".
+ * Devuelve el número de caracteres impresos.
+ */
 int	ft_printstr(char *s)
 {
 	int	i;
@@ -28,6 +33,11 @@ int	ft_printstr(char *s)
 	return (i);
 }
 
+/**
+ * Imprime un número en la base especificada.
+ * Soporta números negativos para base 10.
+ * Devuelve el número de caracteres impresos.
+ */
 int	ft_putnbr(long long nbr, int base)
 {
 	int	i;
@@ -44,6 +54,11 @@ int	ft_putnbr(long long nbr, int base)
 	return (i);
 }
 
+/**
+ * Implementación simplificada de printf.
+ * Soporta los formatos: %s (cadena), %d (entero decimal), %x (hexadecimal).
+ * Devuelve el número total de caracteres impresos.
+ */
 int	ft_printf(const char *s, ...)
 {
 	int		i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miguel-f <miguel-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 12:52:14 by miguel-f          #+#    #+#             */
-/*   Updated: 2025/06/17 12:52:22 by miguel-f         ###   ########.fr       */
+/*   Updated: 2025/06/17 13:04:34 by miguel-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@
 # define BUFFER_SIZE 42
 #endif
 
-
+/**
+ * Duplica una cadena de caracteres.
+ * Reserva memoria para una nueva cadena y copia el contenido de 'line' en ella.
+ * Devuelve un puntero a la nueva cadena duplicada, o NULL si falla la reserva.
+ */
 char *ft_strdup(char *line)
 {
 	char *new;
@@ -39,6 +43,12 @@ char *ft_strdup(char *line)
 	return(new);
 }
 
+/**
+ * Lee una línea de un descriptor de archivo.
+ * Devuelve la siguiente línea leída del archivo especificado por 'fd',
+ * incluyendo el salto de línea si existe. Devuelve NULL al final del archivo
+ * o si ocurre un error.
+ */
 char *get_next_line(int fd)
 {
 	static char		buffer[BUFFER_SIZE];
@@ -46,7 +56,7 @@ char *get_next_line(int fd)
 	static int 		buffer_read;
 	static int		buffer_pos;
 	int i = 0;
-	if(fd < 0 || BUFFER_SIZE <= 0)//Ojo cuidado el puto fd < 0 //////
+	if(fd < 0 || BUFFER_SIZE <= 0)
 		return(NULL);
 	while(1)
 	{
